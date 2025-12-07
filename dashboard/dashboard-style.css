@@ -230,11 +230,12 @@ td {
     }
 
 
-:root {
-    --control-menu-width: 25%; /* default width */
-}
+    :root {
+        --control-menu-width: 25%; /* default width */
+    }
+    
     #main-nav {
-         background-color: #282A3A;
+        background-color: #282A3A;
         color: #F4F4F4;
         box-shadow: 8px 8px 16px #1D1E2C, -8px -8px 16px #34364B;
     }
@@ -285,61 +286,64 @@ td {
     #sensor-readings-content .box p, .column {
         color: #F4F4F4;
     }
+    .column-header {
+        color: white
+    }
 } 
 
-    @media (max-width: 800px) {
-        #sensor-readings {
-            flex-direction: column;
-            align-items: center;
-        }
+@media (max-width: 800px) {
+    #sensor-readings {
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .column {
-            width: 80%;
-            padding: 20px;
-        }
+    .column {
+        width: 80%;
+        padding: 20px;
+    }
 
-        .column-header{
-            font-size: 1.8em;
-        }
+    .column-header{
+        font-size: 1.8em;
+    }
 
-        table {
-            table-layout: fixed;   
-            font-size: 1.4em;
-            width: 90%;            
-            min-width: 0; /*600 dati*/ 
+    table {
+        table-layout: fixed;   
+        font-size: 1.4em;
+        width: 90%;            
+        min-width: 0; /*600 dati*/ 
          
-        }  
+    }  
 
-        td, th {
-            word-wrap: break-word; 
-            overflow: hidden;
-            font-size: 0.9em;
-            padding: 10px;
-        }
+    td, th {
+        word-wrap: break-word; 
+        overflow: hidden;
+        font-size: 0.9em;
+        padding: 10px;
+    }
 
-        .box {
-            width: 90vw;   /* make box wider on mobile relative to viewport */
-            height: auto;  /* keep aspect ratio */
-        }
+    .box {
+        width: 90vw;   /* make box wider on mobile relative to viewport */
+        height: auto;  /* keep aspect ratio */
+    }
 
-        .box p {
-            font-size: 1.5em;  /* adjust font size for smaller boxes */
-        }
+    .box p {
+        font-size: 1.5em;  /* adjust font size for smaller boxes */
+    }
 
     
 
-        .box img {
-            width: 15vw;
-            max-width: 90px;
-            padding: 1px;  
-        }
+    .box img {
+        width: 15vw;
+        max-width: 90px;
+        padding: 1px;  
+    }
 
         
-        :root {
-            --control-menu-width: 50%; /* mobile width */
-        }
-        
+    :root {
+        --control-menu-width: 50%; /* mobile width */
     }
+        
+}
 
 .box-content {
     display: flex;     
