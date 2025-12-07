@@ -216,45 +216,77 @@
 
 
         <footer>
-            <div class="footer column">
-                <div class="Logo">
-                    <img src="" alt="smarthome-logo" id="cvsu-logo">
-                </div>
-                    
-            </div>
-
-
-
-
             <div class="footer-bottom">
-                <p>&copy; Cavite State University, Carmona Campus.</p>
+                <img src="./images/cvsu-logo.png" alt="cvsu-logo">
+                <div class="footer-bottom-text">
+                    <p>Republic of the Philippines</p>
+                    <p>CAVITE STATE UNIVERSITY</p>
+                    <p>Carmona, Cavite</p>
+                </div>
             </div>
+            <hr>
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+                    <img src="./images/logo-black.png" alt="logo">
+                    <p>Integrated Smart Home Kineme</p>
+                    <p class="footer-subtitle">Submitted in partial fulfillment of CPEN 85 & CPEN 101</p>
+                     <p class="footer-subtitle">Cavite State University – Carmona Campus</p>
+                </div>
+
+                <div class="footer-column">
+                    <p class="footer-title">Team Members:</p>
+                </div>
+
+                <div class="footer-column">
+                    <p>Jannah Gaspar</p>
+                    <p>Angelo Gripon Jr.</p>
+                    <p>Jay Johnlie Galo</p>
+                </div>
+
+                <div class="footer-column">
+                    <p>Yuan Ancheta</p>
+                    <p>Marcus Miranda</p>
+                </div>
+
+                    <div class="footer-column">
+                    <p>Shiena Rose Madridano</p>
+                    <p>Genesis Baldonasa</p>
+                </div>
+
+            </div>
+
+    
+
+    
         </footer>
 
 
-    <script>
-        const panel = document.getElementById("control-menu");
-        const buttons = document.querySelectorAll(".control-button");
 
-        // Function to get the current control menu width from CSS variable
-        function getMenuWidth() {
+        <script>
+            const panel = document.getElementById("control-menu");
+            const buttons = document.querySelectorAll(".control-button");
+
+            // Function to get the current control menu width from CSS variable
+            function getMenuWidth() {
             return getComputedStyle(document.documentElement).getPropertyValue('--control-menu-width') || '25%';
-        }
-
-        buttons.forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                // Toggle panel width using the variable
-                panel.style.width = panel.style.width === getMenuWidth() ? "0" : getMenuWidth();
-            });
-        });
-
-        document.addEventListener("click", (e) => {
-            if (!panel.contains(e.target) && panel.style.width === getMenuWidth()) {
-                panel.style.width = "0";
             }
-        });
-    </script>
+
+            buttons.forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                 // Toggle panel width using the variable
+                    panel.style.width = panel.style.width === getMenuWidth() ? "0" : getMenuWidth();
+                });
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!panel.contains(e.target) && panel.style.width === getMenuWidth()) {
+                    panel.style.width = "0";
+                }
+            });
+        </script>
 
 
 
