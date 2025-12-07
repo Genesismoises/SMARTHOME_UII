@@ -1,4 +1,6 @@
 body {
+    height: 100vh;
+    width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,15 +37,17 @@ form {
 }
 
 input[type="password"] {
-    width: 50vh;
+    width: 50vw;
     padding: 25px;
     border-radius: 20px;
     border: 1px solid;
+    max-width: 400px;
+    min-width: 400px;
   }
 
 input[type="submit"]{
     width: 300px;
-    height: 80;
+    height: 80px;
     margin: 20px;
     border-radius: 100px;
     background-color: 23282e;
@@ -80,7 +84,7 @@ input[type="submit"]{
 }
 
 @media screen and (max-width: 700px) {
-    
+
     input[type="password"] {
         width: 80vw;
     }
