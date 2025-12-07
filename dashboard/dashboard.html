@@ -214,24 +214,29 @@
 
 
                 <script>
-                    const panel = document.getElementById("control-menu");
-                    const buttons = document.querySelectorAll(".control-button");
+const panel = document.getElementById("control-menu");
+const buttons = document.querySelectorAll(".control-button");
 
-               
-                    buttons.forEach(btn => {
-                    btn.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    panel.style.width = panel.style.width === "25%" ? "0" : "25%";
-                        });
-                    });
+// Function to get the current control menu width from CSS variable
+function getMenuWidth() {
+    return getComputedStyle(document.documentElement).getPropertyValue('--control-menu-width') || '25%';
+}
 
-            
-                    document.addEventListener("click", (e) => {
-                    if (!panel.contains(e.target) && panel.style.width === "25%") {
-                    panel.style.width = "0";
-                        }
-                    });
-                </script>
+buttons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        // Toggle panel width using the variable
+        panel.style.width = panel.style.width === getMenuWidth() ? "0" : getMenuWidth();
+    });
+});
+
+document.addEventListener("click", (e) => {
+    if (!panel.contains(e.target) && panel.style.width === getMenuWidth()) {
+        panel.style.width = "0";
+    }
+});
+</script>
+
 
 
 

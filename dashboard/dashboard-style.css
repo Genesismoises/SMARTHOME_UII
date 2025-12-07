@@ -219,7 +219,9 @@ td {
     }
 
 
-
+:root {
+    --control-menu-width: 25%; /* default width */
+}
     #main-nav {
          background-color: #282A3A;
         color: #F4F4F4;
@@ -274,9 +276,30 @@ td {
     }
 } 
 
-@media screen {
-    
-}
+    @media (max-width: 1600px) {
+        #sensor-readings {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .column {
+            width: 80%;
+            padding: 20px;
+        }
+
+        table {
+            min-width: auto;
+            width: 100%;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+        }
+         :root {
+        --control-menu-width: 50%; /* mobile width */
+    }
+    }
 
 
 /* Controls ni marcos*/
@@ -286,7 +309,6 @@ td {
     padding: 50px;
     font-family: Arial, sans-serif;
     color: #333;
-
 }
 
 .control-header {
