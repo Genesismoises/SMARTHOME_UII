@@ -310,7 +310,7 @@ td {
         }
 
         .box {
-            width: 80vw;   /* make box wider on mobile relative to viewport */
+            width: 90vw;   /* make box wider on mobile relative to viewport */
             height: auto;  /* keep aspect ratio */
         }
 
@@ -321,8 +321,8 @@ td {
     
 
         .box img {
-            width: 12vw;
-            max-width: 70px;
+            width: 15vw;
+            max-width: 90px;
             padding: 1px;  
         }
 
