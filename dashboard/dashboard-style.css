@@ -72,6 +72,10 @@ body{
     
 
 }
+.parent-box {
+    display: flex;
+
+}
 
 #heading {
     display: flex;
@@ -85,11 +89,43 @@ body{
 }
 
 #sensor-readings {
-    margin-top: 50px;
-    padding: 0 5vw; ;
-    margin-left: 5vw;
     display: flex;
-    gap: 2vw;
+    
+    gap: 8vw;
+    padding: 0 5vw;
+    margin-top: 200px;
+    align-items: stretch;
+}
+
+.column {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px;         /* ← equal spacing on all sides */
+    box-sizing: border-box;
+     display: flex;
+    flex-direction: column;
+}
+.column table {
+    
+    height: 85%;
+    width: 100%;
+
+}
+
+
+.col-header {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+
+/* keep your box layout exactly the same */
+#sensor-readings-content {
+    display: flex;
+    flex-direction:  column;
+    gap: 0;
 }
 
 .box {
@@ -128,7 +164,7 @@ p {
 }
 
 table {
-    margin: 2vw 0 0 0vw;
+    margin-top: 50px;
     width: 90%;
     min-width: 900px;
     border-collapse: collapse;
@@ -151,9 +187,11 @@ td {
 
 
 
+
+
 @media(prefers-color-scheme: dark) {
     body {
-        background-color: 23282e;
+        background-color: #23282e;
         background-image:
         radial-gradient(circle at 90% 10%, #6e267177, transparent 60%),
         radial-gradient(circle at 40% 70%, #9b3d7d77, transparent 50%),
@@ -169,14 +207,15 @@ td {
     }
 
     #control-menu {
-        border: none;
-        background-color: 23282e;
+        border: 1px solid #34364B;
+        background-color: #23282e;
         background-image:
         radial-gradient(circle at 90% 10%, #6e267177, transparent 60%),
         radial-gradient(circle at 40% 70%, #9b3d7d77, transparent 50%),
         radial-gradient(circle at 10% 90%, #1d2b4f77, transparent 75%),
         radial-gradient(circle at 75% 50%, #3e336b77, transparent 80%);
         height: 100vh;
+      
     }
 
 
@@ -187,9 +226,10 @@ td {
         box-shadow: 8px 8px 16px #1D1E2C, -8px -8px 16px #34364B;
     }
 
-    #main-nav img {
+    #main-nav img, #control-nav img {
         content: url('./images/control-white.png');
     }      
+    
     
     
     
@@ -218,6 +258,19 @@ td {
 
     #light {
         content: url('./images/light-yellow.png');
+    }
+
+    #control-menu, 
+    #control-menu * {
+        color: white;
+    }
+    
+    #control-menu .toggle-container span {
+        color: white;
+    }
+
+    #sensor-readings-content .box p, .column {
+        color: #F4F4F4;
     }
 } 
 
@@ -346,3 +399,5 @@ span {
 .control-section h3 {
     font-size: 2em;
 }
+
+
