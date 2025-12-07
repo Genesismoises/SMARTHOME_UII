@@ -215,30 +215,46 @@
 
 
 
+        <footer>
+            <div class="footer column">
+                <div class="Logo">
+                    <img src="" alt="smarthome-logo" id="cvsu-logo">
+                </div>
+                    
+            </div>
 
-                <script>
-const panel = document.getElementById("control-menu");
-const buttons = document.querySelectorAll(".control-button");
 
-// Function to get the current control menu width from CSS variable
-function getMenuWidth() {
-    return getComputedStyle(document.documentElement).getPropertyValue('--control-menu-width') || '25%';
-}
 
-buttons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        // Toggle panel width using the variable
-        panel.style.width = panel.style.width === getMenuWidth() ? "0" : getMenuWidth();
-    });
-});
 
-document.addEventListener("click", (e) => {
-    if (!panel.contains(e.target) && panel.style.width === getMenuWidth()) {
-        panel.style.width = "0";
-    }
-});
-</script>
+            <div class="footer-bottom">
+                <p>&copy; Cavite State University, Carmona Campus.</p>
+            </div>
+        </footer>
+
+
+    <script>
+        const panel = document.getElementById("control-menu");
+        const buttons = document.querySelectorAll(".control-button");
+
+        // Function to get the current control menu width from CSS variable
+        function getMenuWidth() {
+            return getComputedStyle(document.documentElement).getPropertyValue('--control-menu-width') || '25%';
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                // Toggle panel width using the variable
+                panel.style.width = panel.style.width === getMenuWidth() ? "0" : getMenuWidth();
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!panel.contains(e.target) && panel.style.width === getMenuWidth()) {
+                panel.style.width = "0";
+            }
+        });
+    </script>
 
 
 
