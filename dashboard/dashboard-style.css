@@ -290,15 +290,23 @@ td {
             padding: 20px;
         }
 
+        .column-header{
+            font-size: 1.8em;
+        }
+
         table {
             table-layout: fixed;   
+            font-size: 1.4em;
             width: 90%;            
-            min-width: 600px;    
+            min-width: 600px;   
+         
         }  
 
         td, th {
             word-wrap: break-word; 
             overflow: hidden;
+            font-size: 0.9em;
+            padding: 10px;
         }
 
         .box {
@@ -306,9 +314,16 @@ td {
             height: auto;  /* keep aspect ratio */
         }
 
+        .box p {
+            font-size: 1.5em;  /* adjust font size for smaller boxes */
+        }
+
+    
+
         .box img {
-            max-width: 50vw;  /* scale images with viewport */
-            padding: 5px;  
+            width: 12vw;
+            max-width: 70px;
+            padding: 1px;  
         }
 
         
