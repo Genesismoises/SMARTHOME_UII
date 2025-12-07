@@ -67,6 +67,7 @@ body{
     height: 100vh;
     border-radius: 10px 0 10px 0;
     border: solid 1px #C3C3C3;
+ 
 
     
 
@@ -74,21 +75,21 @@ body{
 
 #heading {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 200px 10vw 0 10vw;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 200px;
     color: #333333;
-    gap: 900px;
-    margin-left: 100px;
+    gap: 20px;
     font-size: 1.5em;
 }
 
 #sensor-readings {
     margin-top: 50px;
-    margin-left: 10vw;
+    padding: 0 5vw; ;
+    margin-left: 5vw;
     display: flex;
     gap: 2vw;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .box {
@@ -111,8 +112,9 @@ body{
 }
 
 .box img { 
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
     padding: 10px;
 }
 
@@ -128,7 +130,7 @@ p {
 table {
     margin: 2vw 0 0 0vw;
     width: 90%;
-    max-width: 1200px;
+    min-width: 900px;
     border-collapse: collapse;
     color: #333333;
     width: 90%;
@@ -174,6 +176,7 @@ td {
         radial-gradient(circle at 40% 70%, #9b3d7d77, transparent 50%),
         radial-gradient(circle at 10% 90%, #1d2b4f77, transparent 75%),
         radial-gradient(circle at 75% 50%, #3e336b77, transparent 80%);
+        height: 100vh;
     }
 
 
@@ -218,6 +221,10 @@ td {
     }
 } 
 
+@media screen {
+    
+}
+
 
 /* Controls ni marcos*/
 
@@ -230,11 +237,9 @@ td {
 }
 
 .control-header {
-    display: flex;
+    padding: 0;
+    justify-content: center;
     text-align: center;
-    gap: 50px;
-    margin-bottom: 25px;
-    padding-left: 500px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
    
@@ -275,6 +280,7 @@ td {
     justify-content: space-between;
     align-items: center;
     margin: 12px 0;
+   flex-wrap: wrap;
     font-size: 18px;
     gap: 10px;
 }

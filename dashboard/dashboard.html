@@ -139,45 +139,47 @@
                     </div>
                 </div>
 
-                <table>
-                    <tr>
-                        <td>Door</td>
-                        <td>---</td>
-                    </tr>
+               
+                    <table>
+                        <tr>
+                            <td>Door</td>
+                            <td>---</td>
+                        </tr>
 
-                    <tr>
-                        <td rowspan="3">Lights <br><br>Room1<br><br>Room2</td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td rowspan="3">Lights <br><br>Room1<br><br>Room2</td>
+                            <td></td>
+                        </tr>
 
-                    <tr id="room1">
-                        <td>---</td>
+                        <tr id="room1">
+                            <td>---</td>
                       
-                    </tr>
+                        </tr>
 
-                    <tr>
+                        <tr>
                       
-                        <td>---</td>
-                    </tr>
+                            <td>---</td>
+                        </tr>
 
-                    <tr>
-                        <td>Ultrasonic Sensor</td>
-                        <td>---</td>
-                    </tr>
+                        <tr>
+                            <td>Ultrasonic Sensor</td>
+                            <td>---</td>
+                        </tr>
                     
-                    <tr>
-                        <td>Capacitive Sensor</td>
-                        <td>---</td>
-                    </tr>
+                        <tr>
+                            <td>Capacitive Sensor</td>
+                            <td>---</td>
+                        </tr>
 
-                    <tr>
-                        <td>Buzzer</td>
-                        <td>---</td>
-                    </tr>
+                        <tr>
+                            <td>Buzzer</td>
+                            <td>---</td>
+                        </tr>
 
 
 
-                </table>
+                    </table>
+                </div>
 
                 
                 <canvas>
@@ -196,13 +198,13 @@
                 buttons.forEach(btn => {
                 btn.addEventListener("click", (e) => {
                 e.stopPropagation();
-                panel.style.width = panel.style.width === "50%" ? "0" : "50%";
+                panel.style.width = panel.style.width === "25%" ? "0" : "25%";
                     });
                 });
 
             
                 document.addEventListener("click", (e) => {
-                if (!panel.contains(e.target) && panel.style.width === "50%") {
+                if (!panel.contains(e.target) && panel.style.width === "25%") {
                 panel.style.width = "0";
                     }
                 });
