@@ -34,7 +34,7 @@
                         <div class="toggle-container">
                             <span>CLOSE</span>
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" id="door-control">
                                 <span class="slider"></span>
                             </label>
                             <span>OPEN</span>
@@ -51,7 +51,7 @@
                         <div class="toggle-container">
                             <span>OFF</span>
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" id="room1Control">
                                 <span class="slider"></span>
                             </label>
                             <span>ON</span>
@@ -63,7 +63,7 @@
                         <div class="toggle-container">
                             <span>OFF</span>
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" id="room2Control">
                                 <span class="slider"></span>
                             </label>
                             <span>ON</span>
@@ -99,51 +99,7 @@
             
             <div id="sensor-readings">  
                 
-                <div class="column">
-                    <div class="column-header">
-                        <h2>Sensor Readings</h2>
-                    </div>
-
-                    <div id="sensor-readings-content">
-                    <div class="parent-box">
-                        <div class="box">
-                            <div class="box-content">
-                                <img src="./images/temperature-red.png" alt="temperature-icon" id="temperature">
-                                <p>60.00 C</p>
-                            </div>
-                            <p>Temperature</p>
-                        </div>
-
-                        <div class="box">
-                            <div class="box-content"> 
-                                <img src="./images/humidity-dark.png" alt="humidity-icon" id="humidity">
-                                <p>70%</p>
-                            </div>
-                            <p>Humidity</p>
-                        </div>
-                    </div>
-
-
-                    <div class="parent-box">
-                        <div class="box">
-                            <div class="box-content">
-                                <img src="./images/light-dark.png" alt="light-icon" id="light">
-                                <p>100 Lx</p>
-                            </div>
-                            <p>Light Intensity</p>
-
-                        </div>
-
-                        <div class="box">
-                            <div class="box-content">
-                                <img src="./images/sound-dark.png" alt="sound-icon" id="sound">
-                                <p>53.0 dB</p>
-                            </div>
-                            <p>Sound Level</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                
 
                 <div class="column">
                     <div class="column-header">
@@ -153,23 +109,24 @@
                     <table>
                         <tr>
                             <td>Door</td>
-                            <td>Locked</td>
+                            <td id="door-status"></td>
                         </tr>
 
                         <tr>
                             <td rowspan="3">Lights <br><br>Room1<br><br>Room2</td>
-                            <td></td>
+                            <td>----</td>
                         </tr>
 
                         <tr id="room1">
-                            <td>ON</td>
+            
+                            <td id="room1State"></td>
                             
                       
                         </tr>
 
                         <tr>
                       
-                           <td>ON</td>
+                           <td id="room2State"></td>
                         </tr>
 
                         <tr>
@@ -188,22 +145,60 @@
                         </tr>
 
                          <tr>
-                            <td>Buzzer</td>
-                            <td></td>
+                            <td>Sound Sensor</td>
+                            <td id="soundSenStatus"></td>
                         </tr>
 
-                         <tr>
-                            <td>Buzzer</td>
-                            <td>---</td>
-                        </tr>
-                         <tr>
-                            <td>Buzzer</td>
-                            <td>---</td>
-                        </tr>
 
 
 
                     </table>
+                </div>
+
+                <div class="column">
+                    <div class="column-header">
+                        <h2>Sensor Readings</h2>
+                    </div>
+
+                    <div id="sensor-readings-content">
+                        <div class="parent-box">
+                            <div class="box" sensor-data="temperature">
+                                <div class="box-content">
+                                    <img src="./images/temperature-red.png" alt="temperature-icon" id="temperature">
+                                    <p id="temp-value"></p>
+                                </div>
+                                <p>Temperature</p>
+                            </div>
+
+                            <div class="box" sensor-data="humidity">
+                                <div class="box-content"> 
+                                    <img src="./images/humidity-dark.png" alt="humidity-icon" id="humidity">
+                                    <p id="humid-value"></p>
+                                </div>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+
+
+                        <div class="parent-box">
+                            <div class="box" sensor-data="light">
+                                <div class="box-content">
+                                    <img src="./images/light-dark.png" alt="light-icon" id="light">
+                                    <p id="light-value"></p>
+                                </div>
+                                <p>Light Intensity</p>
+
+                            </div>
+
+                            <div class="box" sensor-data="sound">
+                                <div class="box-content">
+                                    <img src="./images/sound-dark.png" alt="sound-icon" id="sound">
+                                    <p id="sound-value">0.00 dB</p>
+                                </div>
+                                <p>Sound Value</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -216,6 +211,7 @@
 
 
         <footer>
+            <!--
             <div class="footer-bottom">
                 <img src="./images/cvsu-logo.png" alt="cvsu-logo">
                 <div class="footer-bottom-text">
@@ -224,7 +220,7 @@
                     <p>Carmona, Cavite</p>
                 </div>
             </div>
-            <hr>
+            <hr> -->
 
             <div class="footer-content">
 
@@ -287,6 +283,205 @@
                 }
             });
         </script>
+
+        <script>
+                async function updateDHT() {
+                    try {
+                        const response = await fetch('/sensor-data');
+                        const data = await response.json();
+                        
+                        document.getElementById('temp-value').innerText = (data.temperature !== undefined ? data.temperature.toFixed(2) : '--') + ' C';
+            
+
+                        document.getElementById('humid-value').innerText = (data.humidity !== undefined ? data.humidity.toFixed(2) : '--') + ' %';
+                
+                        
+                    } catch (error) {
+                        console.error('Error fetching sensor data:', error);
+                    }
+                }
+
+                async function updateSound() {
+                    try {
+                        const response = await fetch('/sound-data');
+                        const data = await response.json();
+
+                        document.getElementById('sound-value').innerText = (data.sound !== undefined ? data.sound : '--');
+                        document.getElementById('soundSenStatus').innerText = data.clapDetected || '--';
+     
+
+                    }
+                    catch (error) {
+                        console.error('Sound fetch error: ', error);
+
+                    }
+                }
+                    setInterval(updateDHT, 2000); // Update every 2 seconds
+                    updateDHT();
+                    setInterval(updateSound, 200); // Update every 200 milliseconds
+                    updateSound();
+
+
+                
+            
+        </script>
+
+        <script>
+
+            async function updateLDR() {
+                try {
+                const response = await fetch('/ldr-data'); // call ESP32 endpoint
+                const data = await response.json();
+
+                // Update the <p id="light-value">
+                document.getElementById('light-value').innerText = 
+                (data.light !== undefined ? data.light : '--') + ' Lx';
+
+
+                } 
+                catch (error) {
+                    console.error('Error fetching LDR data:', error);
+                }
+               
+            }
+                updateLDR();
+                setInterval(updateLDR, 200);
+
+        </script>
+
+
+
+        <!--
+        <script>
+            async function updateLEDStates() {
+                try {
+                    const response = await fetch('/led-status');
+                    const data = await response.json();
+
+                    // Update table cells
+                    document.getElementById('room1State').innerText = data.ldr || '--';
+                    document.getElementById('room2State').innerText = data.sound || '--';
+                } 
+
+                catch (error) {
+                    console.error('Error fetching LED states:', error);
+                }
+            }
+
+            // Update every 200ms
+            setInterval(updateLEDStates, 200);
+            updateLEDStates();
+        </script> -->
+
+        <script>
+            async function updateLEDStates() {
+            try {
+                const response = await fetch('/led-status');
+                const data = await response.json();
+
+                // Get table cells
+                const room1Cell = document.getElementById('room1State');
+                const room2Cell = document.getElementById('room2State');
+
+                // Update text
+                room1Cell.innerText = data.ldr || '--';
+                room2Cell.innerText = data.sound || '--';
+
+                // Set color based on state
+                room1Cell.style.color = data.ldr === 'ON' ? 'green' : 'red';
+                room2Cell.style.color = data.sound === 'ON' ? 'green' : 'red';
+
+                // Update checkboxes
+                document.getElementById('room1Control').checked = data.ldr === 'ON';
+                document.getElementById('room2Control').checked = data.sound === 'ON';
+
+            } catch (error) {
+                console.error('Error fetching LED states:', error);
+            }
+        }
+                setInterval(updateLEDStates, 200);
+                updateLEDStates();
+        </script>
+
+
+        <script>
+        document.getElementById('room1Control').addEventListener('change', async () => {
+            let state = document.getElementById('room1Control').checked ? 'on' : 'off';
+            await fetch(`/room1?state=${state}`);
+        });
+
+        document.getElementById('room2Control').addEventListener('change', async () => {
+            let state = document.getElementById('room2Control').checked ? 'on' : 'off';
+            await fetch(`/room2?state=${state}`);
+        });
+        </script>
+
+
+
+        <script>
+             const doorControl = document.getElementById('door-control');
+             const doorStatus = document.getElementById('door-status');
+            
+             doorControl.addEventListener('change', async () => {
+                let state = doorControl.checked ? 'open' : 'close';
+                try {
+                    const response = await fetch('/door?state=' + state);
+                    if (!response.ok) throw new Error('Network response not ok');
+                    console.log('Door command sent: ', state);
+                } catch (error) {
+                    console.error('Error sending door command:', error);
+
+
+                }
+                doorStatus.innerText = state === 'open' ? 'OPEN' : 'CLOSED';
+            });
+            doorStatus.innerText = doorControl.checked ? 'OPEN' : 'CLOSED';
+
+             
+
+
+
+        </script>
+
+        
+
+
+            <!-- Modal -->
+        <div id="sensor-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-modal">&times;</span>
+                <h2 id="modal-title">Sensor Data</h2>
+                <div id="modal-graph">
+                    <!-- Graph will go here later -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+    const boxes = document.querySelectorAll('.box');
+    const modal = document.getElementById('sensor-modal');
+    const closeModal = document.getElementById('close-modal');
+    const modalTitle = document.getElementById('modal-title');
+
+    boxes.forEach(box => {
+        box.addEventListener('click', () => {
+            const sensor = box.getAttribute('sensor-data');
+            modalTitle.innerText = sensor.charAt(0).toUpperCase() + sensor.slice(1) + " Data";
+            modal.classList.remove('hidden');
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+
+    // Optional: close modal when clicking outside content
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal) modal.classList.add('hidden');
+    });
+</script>
+
+
 
 
 
