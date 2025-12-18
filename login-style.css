@@ -1,6 +1,4 @@
 body {
-    height: 100vh;
-    width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,17 +35,15 @@ form {
 }
 
 input[type="password"] {
-    width: 50vw;
+    width: 1000px;
     padding: 25px;
     border-radius: 20px;
     border: 1px solid;
-    max-width: 400px;
-    min-width: 400px;
   }
 
 input[type="submit"]{
     width: 300px;
-    height: 80px;
+    height: 80;
     margin: 20px;
     border-radius: 100px;
     background-color: 23282e;
@@ -83,36 +79,28 @@ input[type="submit"]{
     }
 }
 
-@media screen and (max-width: 700px) {
+@media (max-width: 800px) {
+     input[type="password"] {
+      width: 500px;
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 1.1em;
+  }
 
-    input[type="password"] {
-        width: 80vw;
-    }
+  input[type="submit"] {
+      max-width: 200px;
+      height: 60px;
+      margin: 15px;
+      font-size: 1.2em;
+      border-radius: 60px;
+  }
+  
+  img {
+    width: 200px;
+    height: auto;
+  }
 
-    img {
-        width: 60vw;
-        max-width: 350px;
-        height: auto;
-    }
-
-    h1 {
-        font-size: 2em;
-        margin-bottom: 15px;
-    }
-
-    input[type="password"] {
-        width: 80vw;
-        padding: 15px;
-        font-size: 1em;
-    }
-
-    input[type="submit"] {
-        width: 70vw;
-        height: 60px;
-        font-size: 1.2em;
-    }
-
-    form {
-        gap: 10px;
-    }
+  #error-message {
+    font-size: 1.3em;
+}
 }
