@@ -1,6 +1,6 @@
 @font-face { /*Fonts*/
     font-family: 'Inter';
-    src: url('/dashboard/fonts/Inter-Regular.woff2') format('woff2');
+    src: url('fonts/Inter-Regular.woff2') format('woff2');
   
     font-weight: 400;
     font-style: normal;
@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('/dashboard/fonts/Inter-Regular.woff2') format('woff2');
+    src: url('fonts/Inter-Regular.woff2') format('woff2');
     
     font-weight: 500;
     font-style: normal;
@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('/dashboard/fonts/Inter-Regular.woff2') format('woff2');
+    src: url('fonts/Inter-Regular.woff2') format('woff2');
       
     font-weight: 600;
     font-style: normal;
@@ -27,7 +27,7 @@
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/dashboard/fonts/SpaceGrotesk-Light.woff2') format('woff2');
+    src: url('fonts/SpaceGrotesk-Light.woff2') format('woff2');
     
     font-weight: 300;
     font-style: normal;
@@ -36,19 +36,19 @@
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/dashboard/fonts/SpaceGrotesk-Light.woff2') format('woff2');
+    src: url('fonts/SpaceGrotesk-Light.woff2') format('woff2');
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/dashboard/fonts/SpaceGrotesk-Light.woff2') format('woff2');
+    src: url('fonts/SpaceGrotesk-Light.woff2') format('woff2');
     font-weight: 600;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/dashboard/fonts/SpaceGrotesk-Light.woff2') format('woff2');
+    src: url('fonts/SpaceGrotesk-Light.woff2') format('woff2');
     font-weight: 700;
 }
 
