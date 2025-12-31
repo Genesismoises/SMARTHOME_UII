@@ -6,7 +6,7 @@
     document.getElementById("logout-button").addEventListener("click", () => {
         // Example: clear session and go to login
         localStorage.clear();
-        window.location.href = "/login/login.html";
+        window.location.href = "../index.html";
     });
 
 
